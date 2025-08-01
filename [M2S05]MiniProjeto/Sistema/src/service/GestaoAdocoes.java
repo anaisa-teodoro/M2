@@ -35,8 +35,8 @@ public class GestaoAdocoes {
         try {
             if (adotante == null) throw new ValidacaoException("Adotante não encontrado.");
             if (animal == null) throw new ValidacaoException("Animal não encontrado.");
-            if (!adotante.validar()) throw new ValidacaoException("Adotante não habilitado.");
-            if (!animal.validar()) throw new ValidacaoException("Animal não disponível para adoção.");
+            if (adotante.validar()) throw new ValidacaoException("Adotante não habilitado.");
+            if (animal.validar()) throw new ValidacaoException("Animal não disponível para adoção.");
 
             // Verificar se já existe adoção pendente
             boolean existeAdocaoPendente = adocoes.stream()

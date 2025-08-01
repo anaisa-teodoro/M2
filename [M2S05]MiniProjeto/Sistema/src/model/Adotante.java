@@ -20,7 +20,7 @@ public class Adotante implements Validavel, Relatorio {
 
     @Override
     public boolean validar() {
-        return habilitado;
+        return !habilitado;
     }
 
     @Override

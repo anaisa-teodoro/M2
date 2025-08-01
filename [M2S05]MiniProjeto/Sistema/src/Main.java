@@ -3,15 +3,14 @@ import service.GestaoAnimais;
 import service.GestaoAdocoes;
 import java.util.Scanner;
 
-
 public class Main {
     public static void main(String[] args) {
         GestaoAdotantes gestaoAdotantes = new GestaoAdotantes();
         GestaoAnimais gestaoAnimais = new GestaoAnimais();
         GestaoAdocoes gestaoAdocoes = new GestaoAdocoes();
-        Scanner scanner = new Scanner(System.in);
 
-        try {
+
+        try (Scanner scanner = new Scanner(System.in)) {
             while (true) {
                 System.out.println("\n--- MENU PRINCIPAL ---");
                 System.out.println("[1] Gestão de Adotantes");
@@ -29,7 +28,7 @@ public class Main {
                         case 3 -> menuAdocoes(gestaoAdocoes, gestaoAdotantes, gestaoAnimais, scanner);
                         case 4 -> {
                             System.out.println("Encerrando sistema...");
-                            return;
+                            return; // O return aqui encerra o método e o try-with-resources fecha o scanner.
                         }
                         default -> System.out.println("⚠️ Opção inválida. Tente novamente.");
                     }
@@ -37,8 +36,7 @@ public class Main {
                     System.out.println("⚠️ Por favor, digite apenas números.");
                 }
             }
-        } finally {
-            scanner.close();
+
         }
     }
 

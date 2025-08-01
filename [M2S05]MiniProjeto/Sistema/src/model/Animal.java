@@ -24,7 +24,7 @@ public abstract class Animal implements Validavel, Relatorio {
 
     @Override
     public boolean validar() {
-        return "disponível".equalsIgnoreCase(status) && !"doente".equalsIgnoreCase(condicaoSaude);
+        return !"disponível".equalsIgnoreCase(status) || "doente".equalsIgnoreCase(condicaoSaude);
     }
 
     @Override
