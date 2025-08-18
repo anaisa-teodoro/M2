@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "ed69a273-6cd5-4ef3-bedb-f7cbb0ce6e94",
+		"name": "M2S07-Exercícios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38383834",
+		"_collection_link": "https://minesoft-gabriel.postman.co/workspace/FuturoDev~6126e3f4-453a-45ec-972b-7406c330a49a/collection/38383834-ed69a273-6cd5-4ef3-bedb-f7cbb0ce6e94?action=share&source=collection_link&creator=38383834"
+	},
+	"item": [
+		{
+			"name": "collectors",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/collectors",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"collectors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "collectors",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Coleta amarela\",\n    \"description\": \"Coleta seletiva de pláticos gerais\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/collectors",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"collectors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "routes",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/routes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"routes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "routes",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"Rota realizada todos os finais de semana\",\n    \"coverageArea\": \"No interior\",\n    \"pcEfficiency\": 30.48\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/routes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"routes"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

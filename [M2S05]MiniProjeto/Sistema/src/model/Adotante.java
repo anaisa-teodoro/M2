@@ -2,6 +2,7 @@ package model;
 
 import interfaces.Validavel;
 import interfaces.Relatorio;
+import service.ValidadorCPF;
 
 public class Adotante implements Validavel, Relatorio {
     private String nome;
@@ -20,7 +21,12 @@ public class Adotante implements Validavel, Relatorio {
 
     @Override
     public boolean validar() {
+<<<<<<< Updated upstream
         return !habilitado;
+=======
+        // Valida se está habilitado E se o CPF é válido
+        return habilitado && ValidadorCPF.validarCPF(cpf);
+>>>>>>> Stashed changes
     }
 
     @Override
