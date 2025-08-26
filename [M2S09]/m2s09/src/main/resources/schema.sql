@@ -1,0 +1,55 @@
+-- CREATE DATABASE m2s09;
+
+CREATE TABLE IF NOT EXISTS categorias (
+	id BIGSERIAL PRIMARY KEY,
+	nome VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS produtos (
+	id BIGSERIAL PRIMARY KEY,
+	nome VARCHAR(100) NOT NULL,
+	descricao VARCHAR(512),
+	categoria_id BIGINT NOT NULL,
+	valor_unitario NUMERIC(19,2) NOT NULL DEFAULT 0.00
+);
+
+ALTER TABLE produtos DROP CONSTRAINT IF EXISTS fk_produtos_categoria_id;
+ALTER TABLE produtos
+	ADD CONSTRAINT fk_produtos_categoria_id
+	FOREIGN KEY (categoria_id) REFERENCES categorias(id);
+
+CREATE TABLE IF NOT EXISTS clientes (
+	id BIGSERIAL PRIMARY KEY,
+	nome VARCHAR(100) NOT NULL,
+	documento VARCHAR(20) NOT NULL,
+	ativo BOOLEAN NOT NULL DEFAULT true
+);
+
+CREATE TABLE IF NOT EXISTS pedidos (
+	id BIGSERIAL PRIMARY KEY,
+	data_criacao TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(),
+	cliente_id BIGINT NOT NULL REFERENCES clientes(id),
+	total_itens NUMERIC(19,2) NOT NULL DEFAULT 0.00,
+	total_desconto NUMERIC(19,2) NOT NULL DEFAULT 0.00,
+	total NUMERIC(19,2) NOT NULL DEFAULT 0.00
+);
+
+CREATE TABLE IF NOT EXISTS pedido_itens(
+	id BIGSERIAL PRIMARY KEY,
+	pedido_id BIGINT NOT NULL REFERENCES pedidos(id),
+	produto_id BIGINT NOT NULL REFERENCES produtos(id),
+	quantidade INTEGER NOT NULL,
+	valor_unitario NUMERIC(19,2) NOT NULL,
+	desconto NUMERIC(19,2) NOT NULL DEFAULT 0.00,
+	total NUMERIC(19,2) NOT NULL
+);
+
+
+
+
+
+
+
+
+
+
